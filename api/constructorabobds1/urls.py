@@ -20,3 +20,10 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+from django.urls import path
+from .views import get_usuarios
+
+urlpatterns = [
+    path('usuario/', get_usuarios, name='get_usuarios'),
+]

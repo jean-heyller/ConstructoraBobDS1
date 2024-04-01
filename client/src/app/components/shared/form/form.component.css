@@ -17,7 +17,10 @@ padding: 50px 0;
 
 .registration-form .form-icon{
   text-align: center;
-  background-color: #5891ff;
+  background-image: url('../../../../assets/img/logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100px;
   border-radius: 50%;
   font-size: 40px;
   color: white;

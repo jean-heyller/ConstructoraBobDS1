@@ -1,5 +1,5 @@
 """
-URL configuration for constructorabobds1 project.
+URL configuration for constructoraApi project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,11 +19,4 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-from django.urls import path
-from .views import get_usuarios
-
-urlpatterns = [
-    path('usuario/', get_usuarios, name='get_usuarios'),
 ]

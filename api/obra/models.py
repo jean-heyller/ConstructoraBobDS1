@@ -9,6 +9,7 @@ class Obra (models.Model):
     ubicacion = models.CharField(max_length=50)
     directorId = models.ForeignKey('usuario.Usuario', on_delete=models.CASCADE)
     tipoObraId = models.ForeignKey('TipoObra', on_delete=models.CASCADE)
+    usuarios = models.ManyToManyField('usuario.Usuario', related_name='obras')
     fecha_registro = models.DateField()
     fecha_actualizacion = models.DateField()
 
@@ -28,7 +29,7 @@ class Tarea(models.Model):
     tipoTareaId = models.ForeignKey('TipoTarea', on_delete=models.CASCADE)
     descripcion = models.TextField(max_length=200)
     capatazId = models.ForeignKey('usuario.Usuario', on_delete=models.CASCADE)
-    usuarios = models.ManyToManyField('usuario.Usuario', related_name='usuarios')
+    usuarios = models.ManyToManyField('usuario.Usuario', related_name='tareas')
     status = models.CharField(max_length=15, default='nueva')
     fecha_asignacion = models.DateField()
     fecha_estimada = models.DateField()

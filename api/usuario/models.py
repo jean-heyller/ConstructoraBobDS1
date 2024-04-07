@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Usuario(models.Model):
-    userioId = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    usuarioId = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     noIdentificacion = models.CharField(max_length=50)

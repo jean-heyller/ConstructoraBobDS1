@@ -18,12 +18,12 @@ class UsuarioSerializer(serializers.ModelSerializer):
         return tipo_usuario
 
     def create(self, validated_data):
-        tipo_usuario_nombre = validated_data.pop('tipoUsuarioNombre')
+        tipo_usuario_nombre = validated_data.pop('tipoUsuario')
         usuario = Usuario.objects.create(tipoUsuarioId=tipo_usuario_nombre, **validated_data)
         return usuario
 
     def update(self, instance, validated_data):
-        tipo_usuario_nombre = validated_data.pop('tipoUsuarioNombre', None)
+        tipo_usuario_nombre = validated_data.pop('tipoUsuario', None)
         if tipo_usuario_nombre is not None:
             instance.tipoUsuarioId = tipo_usuario_nombre
         return super().update(instance, validated_data)

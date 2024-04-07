@@ -21,7 +21,7 @@ export class RecaptchaService {
         'Content-Type':  'application/json',
       })
     };
-      return this.http.post<any>( 'http://0.0.0.0:5000/api/v1/verificar/' + token +'/', httpOptions)
+      return this.http.post<any>( 'http://127.0.0.1:8000/verificar_captcha' + token +'/', httpOptions)
         .pipe(
           map((response) => response),
           catchError((err) => {

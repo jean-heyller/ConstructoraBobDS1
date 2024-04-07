@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //services
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from 'ng-recaptcha';
+
+import { HttpClientModule } from '@angular/common/http';
  
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,12 +22,14 @@ import { RetCaptchaComponent } from './components/shared/ret-captcha/ret-captcha
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecaptchaV3Module,
+    HttpClientModule
   ],
   providers: [
     {
       provide: RECAPTCHA_V3_SITE_KEY,
-      useValue: '6LeDnLMpAAAAAOKULqrDHMJQ_s6xhxb4imObEAyy',
+      useValue: '6LcLoLMpAAAAAJYkJAvNbOtuWfDHlBbFuAvn5Osr',
     }
   ],
   bootstrap: [AppComponent]

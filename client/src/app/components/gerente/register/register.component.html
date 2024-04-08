@@ -18,7 +18,7 @@
 
      <div class="form-group">
         <select class="form-select form-control item" id="tipoDeUsuario" name="tipoDeUsuario" aria-label="Default select example" required [(ngModel)]="datos.tipoUsuario">
-          <option selected >Selecciona el tipo de usuario</option>
+          <option disabled >Selecciona el tipo de usuario</option>
           <option *ngFor="let usuario of tipoUsuario" [value]="usuario.nombre">{{usuario.nombre}}</option>
         </select>
       </div>
@@ -37,7 +37,7 @@
 
       <div class="form-group">
         <select class="form-select form-control item" id="genero" name="genero" aria-label="Default select example" required [(ngModel)]="datos.genero">
-          <option selected>Selecciona tu Género</option>
+          <option disabled >Selecciona tu Género</option>
           <option value="Masculino">Masculino</option>
           <option value="Femenino">Femenino</option>
           <option value="Otro">Otro</option>
@@ -59,23 +59,15 @@
 
       <div class="form-group">
         <select class="form-select form-control item" id="tipoDeIdentidad" name="tipoDeIdentidad" aria-label="Default select example" required [(ngModel)]="datos.tipoIdentID" >
-          <option selected > Tipo de Identidad</option>
+          <option  disabled> Selecciona el tipo de identificación</option>
           <option *ngFor="let identidad of tipoIdentidad" [value]="identidad.tipoIdentID" >{{identidad.nombre}}</option>
         </select>
       </div>
 
       <div class="form-group btn-class">
-          <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" >Registrar Usuario</button>
+          <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" > Registrar Usuario </button>
       </div>
 
   </form>
-
-
-  
-
-
-
-
-
 
 </div>

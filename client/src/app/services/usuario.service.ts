@@ -12,6 +12,18 @@ export class UsuarioService {
 
 
 
+  getUsuarios() {
+    return this.http.get('http://127.0.0.1:8000/usuario/');
+  }
+
+  getUsuario(id: string) {
+    return this.http.get('http://127.0.0.1:8000/usuario/' + id);
+  }
+
+  deleteUsuario(id: string) {
+    return this.http.delete('http://127.0.0.1:8000/usuario/' + id);
+  }
+
   getTipoUsuario() {
     return this.http.get('http://127.0.0.1:8000/tipo_usuario/');
   }

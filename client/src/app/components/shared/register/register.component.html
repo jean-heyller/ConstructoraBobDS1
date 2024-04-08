@@ -1,73 +1,81 @@
-
 <div class="registration-form animated fadeIn">
-  <form>
+  <form  #registroForm="ngForm">
       <div class="form-icon">
           <span><i class="icon icon-user"></i></span>
       </div>
       <div>
           <h1 class="form-title">Constructora Bob</h1>
-          <h3 class="form-title"> Registro de Usuarios </h3>
+          <h3 class="form-title">Registro de Usuarios</h3>
       </div>
 
       <div class="form-group">
-          <input type="text" class="form-control item" id="nombres" placeholder="Nombres">
+          <input type="text" class="form-control item" id="nombres" name="nombres" placeholder="Nombres" required [(ngModel)]="datos.nombre">
       </div>
 
       <div class="form-group">
-         <input type="text" class="form-control item" id="apellidos" placeholder="Apellidos">
+         <input type="text" class="form-control item" id="apellidos" name="apellidos" placeholder="Apellidos" required [(ngModel)]="datos.apellido">
       </div>
 
      <div class="form-group">
-        <select class="form-select form-control item" id="tipoDeUsuario" aria-label="Default select example">
-          <option selected > Selecciona el tipo de usuario</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select class="form-select form-control item" id="tipoDeUsuario" name="tipoDeUsuario" aria-label="Default select example" required [(ngModel)]="datos.tipoUsuario">
+          <option selected >Selecciona el tipo de usuario</option>
+          <option *ngFor="let usuario of tipoUsuario" [value]="usuario.nombre">{{usuario.nombre}}</option>
         </select>
       </div>
 
       <div class="form-group">
-          <input type="text" class="form-control item" id="numIdentificacion" placeholder="Número de identificación">
+          <input type="text" class="form-control item" id="numIdentificacion" name="numIdentificacion" placeholder="Número de identificación" required [(ngModel)]="datos.noIdentificacion">
       </div>
 
       <div class="form-group">
-          <input type="text" class="form-control item" id="username" placeholder="Usuario">
+          <input type="text" class="form-control item" id="username" name="username" placeholder="Usuario" required [(ngModel)]="datos.username">
       </div>
 
       <div class="form-group">
-          <input type="password" class="form-control item" id="password" placeholder="Contraseña">
+          <input type="password" class="form-control item" id="password" name="password" placeholder="Contraseña" required [(ngModel)]="datos.password">
       </div>
 
       <div class="form-group">
-        <select class="form-select form-control item" id="genero" aria-label="Default select example">
-          <option selected > Selecciona tu Género</option>
-          <option value="1"> Masculino </option>
-          <option value="2"> Femenino </option>
-          <option value="3"> Otro </option>
+        <select class="form-select form-control item" id="genero" name="genero" aria-label="Default select example" required [(ngModel)]="datos.genero">
+          <option selected>Selecciona tu Género</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
         </select>
       </div>
 
       <div class="form-group">
-          <input type="text" class="form-control item" id="direccion" placeholder="Dirección">
+          <input type="text" class="form-control item" id="direccion" name="direccion" placeholder="Dirección" required [(ngModel)]="datos.direccion">
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control item" id="celular" placeholder="Número de Celular">
+        <input type="text" class="form-control item" id="celular" name="celular" placeholder="Número de Celular" required [(ngModel)]="datos.noCelular">
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control item" id="foto" name="foto" placeholder="Url Foto" required [(ngModel)]="datos.foto">
       </div>
 
 
       <div class="form-group">
-        <select class="form-select form-control item" id="tipoDeIdentidad" aria-label="Default select example">
+        <select class="form-select form-control item" id="tipoDeIdentidad" name="tipoDeIdentidad" aria-label="Default select example" required [(ngModel)]="datos.tipoIdentID" >
           <option selected > Tipo de Identidad</option>
-          <option value="1"> One </option>
-          <option value="2"> Two </option>
-          <option value="3"> Three </option>
+          <option *ngFor="let identidad of tipoIdentidad" [value]="identidad.tipoIdentID" >{{identidad.nombre}}</option>
         </select>
       </div>
 
       <div class="form-group btn-class">
-          <button type="button" class="btn create-account"> Registrar Usuario </button>
+          <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" >Registrar Usuario</button>
       </div>
 
   </form>
+
+
+  
+
+
+
+
+
+
 </div>

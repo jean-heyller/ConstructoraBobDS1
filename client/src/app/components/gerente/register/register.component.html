@@ -53,20 +53,27 @@
       </div>
 
       <div class="form-group">
-          <input type="text" class="form-control item" id="foto" name="foto" placeholder="Url Foto" required [(ngModel)]="datos.foto">
-      </div>
-
-
-      <div class="form-group">
         <select class="form-select form-control item" id="tipoDeIdentidad" name="tipoDeIdentidad" aria-label="Default select example" required [(ngModel)]="datos.tipoIdentID" >
           <option  disabled> Selecciona el tipo de identificación</option>
           <option *ngFor="let identidad of tipoIdentidad" [value]="identidad.tipoIdentID" >{{identidad.nombre}}</option>
         </select>
       </div>
 
+      <div class="form-group m-5">
+        <h4 class="text-center">Foto</h4>
+        <ngx-dropzone (change)="onSelect($event)">
+          <ngx-dropzone-label>Ingresa o suelta tu imagen</ngx-dropzone-label>
+          <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+      </div>
+      
       <div class="form-group btn-class">
           <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" > Registrar Usuario </button>
       </div>
+
+      
 
   </form>
 

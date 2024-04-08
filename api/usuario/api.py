@@ -13,7 +13,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         usuario = self.get_object()
-        usuario.usuariodelete = True
+        usuario.usuariodelete = not usuario.usuariodelete
         usuario.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
 

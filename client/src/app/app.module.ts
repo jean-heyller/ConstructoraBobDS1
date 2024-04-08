@@ -23,6 +23,13 @@ import { RetCaptchaComponent } from './components/shared/captcha/ret-captcha.com
 
 
 
+import { RegisterComponent } from './components/gerente/register/register.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+
+import { UsersComponent } from './components/gerente/users/users.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +39,11 @@ import { RetCaptchaComponent } from './components/shared/captcha/ret-captcha.com
     RetCaptchaComponent,
     
   
+    RegisterComponent,
+    NavbarComponent,
+    DashboardComponent,
+    UsersComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +62,7 @@ import { RetCaptchaComponent } from './components/shared/captcha/ret-captcha.com
       provide: RECAPTCHA_V3_SITE_KEY,
       useValue: "6LfrtLMpAAAAAAF8K-Sa7H_KFnWX1acuyIgRZTnu",
     },
+    FormsModule,
   ],
   bootstrap: [AppComponent]
 })

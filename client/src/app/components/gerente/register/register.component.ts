@@ -19,7 +19,8 @@ export class RegisterComponent {
   datos: any = {
     genero: 'Selecciona tu Género',
     tipoIdentID: 'Selecciona el tipo de identificación',
-    tipoUsuario: 'Selecciona el tipo de usuario'
+    tipoUsuario: 'Selecciona el tipo de usuario',
+    foto: '',
   }
 
   constructor( private usuarioService: UsuarioService) {
@@ -37,10 +38,8 @@ export class RegisterComponent {
    registrarUsuario(){
     this.upload();
 
-    if(this.datos.foto){
-      console.log("Entro")
-      /* this.usuarioService.registrarUsuario(this.datos).subscribe({
-
+    if((this.usuarioService.getUrl()).length > 0){
+      this.usuarioService.registrarUsuario(this.datos).subscribe({
         next: (data: any) => {
   
           Swal.fire({
@@ -74,7 +73,7 @@ export class RegisterComponent {
           });
   
         }
-      }); */
+      }); 
 
     }else{
       console.log("No entro")
@@ -107,6 +106,8 @@ export class RegisterComponent {
       this.usuarioService.uploadImg(form_data).subscribe((data: any) => {
       
         this.datos.foto = data.url;
+
+        this.usuarioService.seturl(data.url);
       })
     }
 

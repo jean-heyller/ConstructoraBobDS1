@@ -57,7 +57,9 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     AppRoutingModule,
     FormsModule,
     RecaptchaModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDropzoneModule,
+    CloudinaryModule
 
   ],
   providers: [

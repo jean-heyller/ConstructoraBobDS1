@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 def validate_recaptcha(recaptcha_response):
     data = {
-        'secret': 'Tu clave privada de reCAPTCHA',
+        'secret': '6LfrtLMpAAAAALPq_m-OnzjOj2t9zHH6kpxuT3YI',
         'response': recaptcha_response
     }
     r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)

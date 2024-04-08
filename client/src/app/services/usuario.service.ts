@@ -9,6 +9,8 @@ export class UsuarioService {
 
   urlImg: string = 'https://api.cloudinary.com/v1_1/dck1pqw4h/image/upload';
 
+  url: string = '';
+
   constructor(private http: HttpClient ) { }
 
 
@@ -40,6 +42,14 @@ export class UsuarioService {
 
   uploadImg(foto: any): Observable<any> {
     return this.http.post(this.urlImg, foto )
+  }
+
+  seturl(url: string){
+    this.url = url;
+  }
+
+  getUrl(){
+    return this.url;
   }
 
 

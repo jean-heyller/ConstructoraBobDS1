@@ -32,6 +32,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
             instance.tipoUsuarioId = tipo_usuario
         return super().update(instance, validated_data)
     
+    
 class TipoIdentificacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoIdentificacion

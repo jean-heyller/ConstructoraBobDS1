@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
+  urlImg: string = 'https://api.cloudinary.com/v1_1/dck1pqw4h/image/upload';
+
   constructor(private http: HttpClient ) { }
 
 
@@ -36,6 +38,9 @@ export class UsuarioService {
     return this.http.post('http://127.0.0.1:8000/usuario/', datosCliente)
   }
 
+  uploadImg(foto: any): Observable<any> {
+    return this.http.post(this.urlImg, foto )
+  }
 
 
 }

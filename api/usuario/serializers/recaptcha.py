@@ -1,9 +1,10 @@
 import requests
 from rest_framework import serializers
+from decouple import config
 
 def validate_recaptcha(recaptcha_response):
     data = {
-        'secret': '6LfrtLMpAAAAALPq_m-OnzjOj2t9zHH6kpxuT3YI',
+        'secret': config('RECAPTCHA_PRIVATE_KEY'),
         'response': recaptcha_response
     }
     r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)

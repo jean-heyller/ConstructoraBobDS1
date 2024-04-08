@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/enviroments';
 
 
 import {ReactiveFormsModule} from '@angular/forms';
@@ -66,7 +67,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
   
     {
       provide: RECAPTCHA_V3_SITE_KEY,
-      useValue: "6LfrtLMpAAAAAAF8K-Sa7H_KFnWX1acuyIgRZTnu",
+      useValue: "environment.key",
     },
     FormsModule,
     NgxDropzoneModule,

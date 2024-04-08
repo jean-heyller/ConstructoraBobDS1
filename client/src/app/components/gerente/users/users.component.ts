@@ -30,6 +30,12 @@ export class UsersComponent {
   deleteUsuario(id: string) {
     this.usuarioService.deleteUsuario(id).subscribe((data: any) => {
       this.getUsuarios();
+      Swal.fire({
+        icon: 'success',
+        title: 'Se ha cambiado el estado del Usuario',
+        timer: 2000,
+        showConfirmButton: false
+      })
     })
   }
 

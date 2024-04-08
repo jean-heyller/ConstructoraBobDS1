@@ -1,5 +1,5 @@
 from usuario.models import Usuario, TipoIdentificacion, TipoUsuario
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from .serializers.usuario_serializers import UsuarioSerializer, TipoIdentificacionSerializer, TipoUsuarioSerializer
 from .serializers.login_serializer import LoginSerializer
@@ -10,6 +10,12 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = UsuarioSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        usuario = self.get_object()
+        usuario.usuariodelete = True
+        usuario.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class TipoIdentificacionViewSet(viewsets.ModelViewSet):
     queryset = TipoIdentificacion.objects.all()
@@ -34,8 +40,17 @@ class LoginViewSet(viewsets.ViewSet):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
-        return Response({'username': user.username, 'tipoUsuario': user.tipoUsuarioId.nombre})
-    
+        return Response({
+            'status': status.HTTP_200_OK,
+            'message': 'Login exitoso.',
+            'data': {
+                'username': user.username,
+                'tipoUsuario': user.tipoUsuarioId.nombre,
+                'nombre': user.nombre,
+                'foto': user.foto,
+            }
+        })
+
     @property
     def allowed_methods(self):
         return ['POST']

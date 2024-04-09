@@ -23,12 +23,11 @@ export class LoginComponent {
       const { username, password } = forma.value;
       this.authService.login(username, password).subscribe(
         response => {
+          this.router.navigate(['/dashboard']);
           // Si la respuesta es correcta, guarda la respuesta en localStorage
           localStorage.setItem('user', JSON.stringify(response));
           // Muestra un SweetAlert de éxito
-          Swal.fire('Éxito', 'Inicio de sesión correcto', 'success');
-
-          this.router.navigate(['/dashboard']);
+          Swal.fire('Éxito', 'Inicio de sesión correcto', 'success')
         },
         error => {
           console.log(error);

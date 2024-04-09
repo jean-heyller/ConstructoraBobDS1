@@ -62,6 +62,7 @@ export class UsersComponent {
   }
 
   editarUsuario() {
-    this.router.navigate(['/user-detail',this.usuario])
+    this.router.navigate(['/userDetail']);
+
   }
 }

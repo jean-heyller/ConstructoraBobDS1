@@ -20,6 +20,5 @@ export class GerenteGuard implements CanActivate {
     }
 
 
-
   }
 }

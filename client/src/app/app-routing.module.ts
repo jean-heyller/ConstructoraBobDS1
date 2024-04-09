@@ -11,9 +11,6 @@ import { GerenteGuard} from './guards/gerente.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: '**' , pathMatch: 'full', redirectTo: 'login'},
-  {path: 'user-detail/:user', component: UserDetailComponent},
   
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'home', component: HomeComponent},
@@ -22,6 +19,11 @@ const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'home'},
     {path: '**' , pathMatch: 'full', redirectTo: 'home'}
   ]},
+
+  {path: 'userDetail', component: UserDetailComponent},
+
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '**' , pathMatch: 'full', redirectTo: 'login'}
 ];
 
 @NgModule({

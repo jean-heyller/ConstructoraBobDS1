@@ -24,6 +24,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/gerente/users/users.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 
 
@@ -39,6 +40,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     DashboardComponent,
     UsersComponent,
     LoadingComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,

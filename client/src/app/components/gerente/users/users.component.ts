@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -14,11 +15,12 @@ export class UsersComponent {
 
   loading: boolean;
 
-  constructor( private usuarioService: UsuarioService) {
-    this.getUsuarios()
-    this.loading = true;
-   }
-
+  constructor(  private usuarioService: UsuarioService,
+                private router:Router) 
+                {
+                  this.getUsuarios()
+                  this.loading = true;
+                }
 
   getUsuarios() {
     this.usuarioService.getUsuarios().subscribe((data: any) => {
@@ -59,6 +61,7 @@ export class UsersComponent {
     })
   }
 
-
-
+  editarUsuario() {
+    this.router.navigate(['/user-detail',this.usuario])
+  }
 }

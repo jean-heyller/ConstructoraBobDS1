@@ -17,8 +17,6 @@ export class LoginComponent {
     password: ''
   }
 
-  
-
   constructor(private authService: AuthService, private router: Router) { }
 
 

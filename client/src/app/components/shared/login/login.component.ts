@@ -32,6 +32,7 @@ export class LoginComponent {
           Swal.fire('Éxito', 'Inicio de sesión correcto', 'success');
         },
         error => {
+          console.log(error);
           // Si hay un error, muestra un SweetAlert con el mensaje de error
           Swal.fire('Error', error.error.message, 'error');
         }

@@ -70,7 +70,9 @@
       </div>
       
       <div class="form-group btn-class">
-          <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" > Registrar Usuario </button>
+          <button type="submit" class="btn create-account" [disabled]="registroForm.invalid" (click)="registrarUsuario()" > 
+            {{isLoading ? 'Guardando...' : 'Registrar Usuario'}}
+          </button>
       </div>
 
       

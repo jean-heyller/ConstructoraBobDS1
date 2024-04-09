@@ -11,12 +11,12 @@ const routes: Routes = [
   
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'home', component: HomeComponent},
-    {path: 'register', component: RegisterComponent},
+    {path: 'register', component: RegisterComponent,},
     {path: 'users', component: UsersComponent},
     {path: '', pathMatch: 'full', redirectTo: 'home'},
     {path: '**' , pathMatch: 'full', redirectTo: 'home'}
   ]},
-
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: '**' , pathMatch: 'full', redirectTo: 'login'}
 ];
 

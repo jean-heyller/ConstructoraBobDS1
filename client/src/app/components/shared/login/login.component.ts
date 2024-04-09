@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
@@ -18,7 +19,7 @@ export class LoginComponent {
 
   
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
 
   login(forma: NgForm) {
@@ -30,6 +31,8 @@ export class LoginComponent {
           localStorage.setItem('user', JSON.stringify(response));
           // Muestra un SweetAlert de éxito
           Swal.fire('Éxito', 'Inicio de sesión correcto', 'success');
+
+          this.router.navigate(['/dashboard']);
         },
         error => {
           // Si hay un error, muestra un SweetAlert con el mensaje de error
@@ -44,5 +47,6 @@ export class LoginComponent {
       });
     }
   }
+
 
 }

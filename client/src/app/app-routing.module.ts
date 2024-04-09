@@ -5,9 +5,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { RegisterComponent } from './components/gerente/register/register.component';
 import { UsersComponent } from './components/gerente/users/users.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '**' , pathMatch: 'full', redirectTo: 'login'},
+  {path: 'user-detail/:user', component: UserDetailComponent},
   
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'home', component: HomeComponent},
@@ -16,8 +20,6 @@ const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'home'},
     {path: '**' , pathMatch: 'full', redirectTo: 'home'}
   ]},
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: '**' , pathMatch: 'full', redirectTo: 'login'}
 ];
 
 @NgModule({

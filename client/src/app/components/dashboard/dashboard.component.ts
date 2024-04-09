@@ -16,13 +16,11 @@ export class DashboardComponent {
 
   getTipoUsuario() {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    
+
     if(localStorage.getItem('user')==null){
       this.router.navigate(['login']);
     }else{
-
       this.tipoUsuario = user.data.tipoUsuario;
-      console.log(this.tipoUsuario);
     }
 
   }

@@ -16,7 +16,7 @@ export class UsersComponent {
   loading: boolean;
 
   constructor(  private usuarioService: UsuarioService,
-                private router:Router) 
+                private router:Router)
                 {
                   this.getUsuarios()
                   this.loading = true;
@@ -30,7 +30,23 @@ export class UsersComponent {
   }
 
   deleteUsuario(id: string) {
+
     this.usuarioService.deleteUsuario(id).subscribe((data: any) => {
+      this.getUsuarios();
+      Swal.fire({
+        icon: 'success',
+        title: 'Se ha borrado el Usuario',
+        timer: 2000,
+        showConfirmButton: false
+      })
+    })
+  }
+
+  cambiarEstadoUsuario(id: string, estado: boolean) {
+
+    this.usuarioService.cambiarEstadoUsuario(id, !estado).subscribe((data: any) => {
+      console.log(data)
+
       this.getUsuarios();
       Swal.fire({
         icon: 'success',
@@ -61,8 +77,9 @@ export class UsersComponent {
     })
   }
 
-  editarUsuario() {
-    this.router.navigate(['/userDetail']);
+  editarUsuario(id: string) {
+
+    this.router.navigate(['/dashboard/userDetail', id]);
 
   }
 }

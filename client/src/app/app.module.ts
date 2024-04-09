@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '../environments/envrironments';
+import { environment } from '../environments/enviroments';
 
 //Modulos
 import {ReactiveFormsModule} from '@angular/forms';
@@ -24,7 +24,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/gerente/users/users.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
-import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { UserDetailComponent } from './components/gerente/user-detail/user-detail.component';
 
 
 

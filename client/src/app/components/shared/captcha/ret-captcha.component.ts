@@ -25,7 +25,6 @@ export class RetCaptchaComponent {
 
     this.recaptchaV3Service.execute('importantAction')
     .subscribe((token: string) => {
-       console.log(token);
       this.authService.sendToken(token);
     });
   }

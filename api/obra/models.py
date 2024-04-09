@@ -10,8 +10,8 @@ class Obra (models.Model):
     directorId = models.ForeignKey('usuario.Usuario', on_delete=models.CASCADE)
     tipoObraId = models.ForeignKey('TipoObra', on_delete=models.CASCADE)
     usuarios = models.ManyToManyField('usuario.Usuario', related_name='obras')
-    fecha_registro = models.DateField()
-    fecha_actualizacion = models.DateField()
+    fecha_registro = models.DateField(auto_now_add=True)
+    fecha_actualizacion = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.nombre
@@ -33,8 +33,8 @@ class Tarea(models.Model):
     status = models.CharField(max_length=15, default='nueva')
     fecha_asignacion = models.DateField()
     fecha_estimada = models.DateField()
-    fecha_registro = models.DateField()
-    fecha_actualizacion = models.DateField()
+    fecha_registro = models.DateField(auto_now_add=True)
+    fecha_actualizacion = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.nombre

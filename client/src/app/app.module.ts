@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '../environments/envrironments';
+import { environment } from '../environments/enviroments';
 
 //Modulos
 import {ReactiveFormsModule} from '@angular/forms';

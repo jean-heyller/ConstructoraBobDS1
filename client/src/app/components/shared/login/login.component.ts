@@ -16,9 +16,7 @@ export class LoginComponent {
     username: '',
     password: ''
   }
-
   constructor(private authService: AuthService, private router: Router) { }
-
 
   login(forma: NgForm) {
     if (forma.valid) {
@@ -46,6 +44,5 @@ export class LoginComponent {
       });
     }
   }
-
 
 }

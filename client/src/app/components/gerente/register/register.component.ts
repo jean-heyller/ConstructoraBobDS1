@@ -93,7 +93,6 @@ export class RegisterComponent {
       form_data.append('file', file_data);
       form_data.append('upload_preset', 'constructora-bob');
       form_data.append('cloud_name', 'dck1pqw4h');
-  
       try {
         const data: any = await this.usuarioService.uploadImg(form_data).toPromise();
         this.datos.foto = data.url;

@@ -10,4 +10,11 @@ export class NavbarComponent {
   @Input()
   tipoUsuario: any;
 
+  constructor() { }
+
+  cerrarSesion() {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
 }

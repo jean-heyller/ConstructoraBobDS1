@@ -35,6 +35,7 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         },
         error => {
+          console.log(error);
           // Si hay un error, muestra un SweetAlert con el mensaje de error
           Swal.fire('Error', error.error.message, 'error');
         }

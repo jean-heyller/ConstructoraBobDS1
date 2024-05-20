@@ -3,6 +3,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,6 +18,7 @@ export class RegisterComponent {
   files: File[] = [];
   isLoading = false;
 
+
   datos: any = {
     genero: 'Selecciona tu Género',
     tipoIdentID: 'Selecciona el tipo de identificación',
@@ -24,7 +26,9 @@ export class RegisterComponent {
     foto: '',
   }
 
-  constructor( private usuarioService: UsuarioService) {
+  constructor(  private usuarioService: UsuarioService
+         
+  ) {
 
     this.usuarioService.getTipoUsuario().subscribe((data: any) => {
       this.tipoUsuario = data;
@@ -33,6 +37,7 @@ export class RegisterComponent {
     this.usuarioService.getTipoIdentidad().subscribe((data: any) => {
       this.tipoIdentidad = data;
     });
+
    }
 
 

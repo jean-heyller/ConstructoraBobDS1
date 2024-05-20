@@ -18,7 +18,5 @@ export class GerenteGuard implements CanActivate {
       this.router.navigate(['/dashboard']);
       return false;
     }
-
-
   }
 }
